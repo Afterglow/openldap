@@ -67,6 +67,14 @@ if node['openldap']['slapd_type'] == "slave"
   default['openldap']['slapd_rid']    = 102
 end
 
+# Schemas to load
+default['openldap']['schemas'] = [
+  'core',
+  'cosine',
+  'nis',
+  'inetorgperson'
+]
+
 # Auth settings for Apache
 if node['openldap']['basedn'] && node['openldap']['server']
   default['openldap']['auth_type']   = "openldap"
